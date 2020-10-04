@@ -5,7 +5,7 @@ class CreatePortfolios < ActiveRecord::Migration[6.0]
       t.string :url,      null: false
       t.string :language, null: false
       t.text :text,       null: false
-      t.integer :user_id, null: false
+      t.references :user, null: false, foreign_key: true
       t.timestamps
     end
   end

@@ -1,1 +1,24 @@
 <h1>投稿画面</h1>
+<%= form_with model: @portfolio, local: true do |f| %>
+  <div class="form-field">
+    <div class="title-field">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title, class: "portfolio-title" %>
+    </div>
+    <div class="language-field">
+      <%= f.label :language, "使用言語" %>
+      <%= f.text_field :language, class: "portfolio-language" %>
+    </div>
+    <div class="text-field">
+      <%= f.label :text, "説明欄" %>
+      <%= f.text_area :text, class: "portfolio-text" %>
+    </div>
+    <div class="url-field">
+      <%= f.label :url, "URL" %>
+      <%= f.text_field :url, class: "portfolio-url" %>
+    </div>
+    <div class="submit-btn">
+      <%= f.submit "投稿する" %>
+    <div>
+  </div>
+<% end %>
