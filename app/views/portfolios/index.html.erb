@@ -26,8 +26,8 @@
         <p class="contents-language">
           <%= "言語：#{portfolio.language}" %>
         </p>
-        <p>
-        詳細
+        <p class="go-to-show">
+          <%= link_to "詳細", portfolio_path(portfolio.id), method: :get %>
         </p>
       </div>
     <% end %>

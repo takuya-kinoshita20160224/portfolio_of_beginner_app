@@ -1,0 +1,54 @@
+<div class="show-body">
+  <div class="show-title">
+    <h1>ポートフォリオ詳細</h1>
+  </div>
+  <div class="show-contents">
+    <div class="show-contents-title">
+      <div class="show-title-lists">
+        <div class="show-title-list">
+          <p>作者</p>
+        </div>
+        <div class="show-title-list">
+          <p>タイトル</p>
+        </div>
+        <div class="show-title-list">
+          <p>使用言語</p>
+        </div>
+        <div class="show-title-text">
+          <p>説明</p>
+        </div>
+        <div class="show-title-list">
+          <p>URL</p>
+        </div>
+      </div>
+    </div>
+    <div class="show-contents-main">
+      <div class="show-lists">
+        <div class="show-list">
+          <%= @portfolio.user.nickname %>
+        </div>
+        <div class="show-list">
+          <%= @portfolio.title %>
+        </div>
+        <div class="show-list">
+          <%= @portfolio.language %>
+        </div>
+        <div class="show-text">
+          <%= @portfolio.text %>
+        </div>
+        <div class="show-list">
+          <%= @portfolio.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="edit-btn">
+    <% if current_user.id == @portfolio.user.id %>
+      <%= link_to "編集する", edit_portfolio_path(@portfolio.id), method: :get, class: "btn" %>
+      <%= link_to "削除する", portfolio_path(@portfolio.id), method: :delete, class: "btn" %>
+    <% else %>
+      <%= link_to "コメントする", "#", method: :get, class: "btn" %>
+    <% end %>
+    <%= link_to "戻る", root_path, class: "btn" %>
+  </div>
+</div>
