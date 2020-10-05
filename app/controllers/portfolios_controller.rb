@@ -9,6 +9,7 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio = Portfolio.new(portfolio_params)
+    @portfolio.language.downcase!
     if @portfolio.save
       redirect_to root_path
     else
