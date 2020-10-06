@@ -26,9 +26,11 @@
         <p class="contents-language">
           <%= "言語：#{portfolio.language}" %>
         </p>
-        <p class="go-to-show">
-          <%= link_to "詳細", portfolio_path(portfolio.id), method: :get %>
-        </p>
+        <% if user_signed_in? %>
+          <p class="go-to-show">
+            <%= link_to "詳細", portfolio_path(portfolio.id), method: :get %>
+          </p>
+        <% end %>
       </div>
     <% end %>
   </div>

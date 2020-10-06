@@ -47,8 +47,19 @@
       <%= link_to "編集する", edit_portfolio_path(@portfolio.id), method: :get, class: "btn" %>
       <%= link_to "削除する", portfolio_path(@portfolio.id), method: :delete, class: "btn" %>
     <% else %>
-      <%= link_to "コメントする", "#", method: :get, class: "btn" %>
+      <%= link_to "コメントする", new_portfolio_comment_path(@portfolio.id), method: :get, class: "btn" %>
     <% end %>
     <%= link_to "戻る", root_path, class: "btn" %>
+  </div>
+  <div class="comments">
+    <h4>＜コメント一覧＞</h4>
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "#" %>：</strong>
+          <%= comment.message %>
+        </p>
+      <% end %>
+    <% end %>
   </div>
 </div>

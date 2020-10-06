@@ -19,6 +19,7 @@ class PortfoliosController < ApplicationController
   end
 
   def show
+    @comments = @portfolio.comments.includes(:user)
   end
 
   def edit
