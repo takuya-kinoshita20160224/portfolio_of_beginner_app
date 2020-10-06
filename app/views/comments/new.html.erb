@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="comment-title">
+    <h1>コメント画面</h1>
+  </div>
+  <% if current_user %>
+    <%= form_with model: [@portfolio, @comment], id: "comment-form", local: true do |f| %>
+      <%= f.text_area :message, placeholder: "コメントする", rows: "20", cols: "10" %>
+      <%= f.submit "送信", id: "comment-submit" %>
+    <% end %>
+  <% else %>
+    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
+  <div class="return-btn">
+    <%= link_to "戻る", portfolio_path(@portfolio.id), class: "btn" %>
+  </div>
+</div>

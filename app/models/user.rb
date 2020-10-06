@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :portfolios
+  has_many :comments
 
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }, length: { maximum: 6 }
