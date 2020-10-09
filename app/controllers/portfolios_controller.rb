@@ -1,9 +1,16 @@
 class PortfoliosController < ApplicationController
   before_action :set_portrolio, only: [:edit, :show]
+  before_action :search_portfolio, only: [:index, :search]
   def index
     @portfolios = Portfolio.all
+    set_portfolio_column
+    set_user_column
   end
 
+  def search
+    @results = @p.result.includes(:user)
+  end
+ 
   def new
     @portfolio = Portfolio.new
   end
@@ -47,6 +54,18 @@ class PortfoliosController < ApplicationController
 
   def set_portrolio
     @portfolio = Portfolio.find(params[:id])
+  end
+
+  def search_portfolio
+    @p = Portfolio.ransack(params[:q])
+  end
+
+  def set_portfolio_column
+    @portfolio_language = Portfolio.select("language").distinct
+  end
+
+  def set_user_column
+    @user_nickname = User.select("nickname").distinct
   end
 
   def portfolio_params

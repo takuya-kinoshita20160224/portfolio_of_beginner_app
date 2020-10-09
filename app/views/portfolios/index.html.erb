@@ -1,39 +1,56 @@
-<header class="header">
-  <div class="header-bar">
-    <h1 class="header-left">ポートフォリオ見せ場</h1>
-    <div class="header-right">
-    <%= current_user.nickname if user_signed_in? %>
-    <% if user_signed_in? %>
-      <%= link_to "ログアウト", destroy_user_session_path, id: "logout", method: :delete %>
-      <%= link_to "投稿する", new_portfolio_path, id: "new-post" %>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path, id: "login" %>
-      <%= link_to "新規登録", new_user_registration_path, id: "signup" %>
-    <% end %>
-    </div>
-  </div>
-</header>
-<main class="main">
-  <div class="main-contents">
-    <% @portfolios.each do |portfolio| %>
-      <div class="contents">
-        <p class="contents-user">
-          <%= "作者：#{portfolio.user.nickname}" %>
-        </p>
-        <p class="contents-title">
-          <%= "タイトル：#{portfolio.title}" %>
-        </p>
-        <p class="contents-language">
-          <%= "言語：#{portfolio.language}" %>
-        </p>
+<div id="wrapper">
+  <header class="header">
+    <div class="header-bar">
+      <h1 class="header-left">Port Folio Share</h1>
+      <div class="header-right">
+        <%= link_to current_user.nickname, "#" if user_signed_in? %>
         <% if user_signed_in? %>
-          <p class="go-to-show">
-            <%= link_to "詳細", portfolio_path(portfolio.id), method: :get %>
-          </p>
+          <%= link_to "ログアウト", destroy_user_session_path, id: "logout", method: :delete %>
+          <%= link_to "投稿する", new_portfolio_path, id: "new-post" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, id: "login" %>
+          <%= link_to "新規登録", new_user_registration_path, id: "signup" %>
         <% end %>
       </div>
-    <% end %>
-  </div>
-</main>
-<footer class="footer">
-</footer>
+    </div>
+    <%= image_tag "book2.jpg", width: "100%", height: "90%", class: "header-image" %>
+  </header>
+  <main class="main">
+    <div class="search-form">
+      <h1>ポートフォリオ検索</h1>
+      <%= search_form_for @p, url: search_portfolios_path do |f| %>
+        <%= f.label :language_eq, "言語名" %>
+        <%= f.collection_select :language_eq, @portfolio_language, :language, :language, include_blank: "指定なし" %>
+        <br>
+        <%= f.label :user_nickname_eq, "作者名" %>
+        <%= f.collection_select :user_nickname_eq, @user_nickname, :nickname, :nickname, include_blank: "指定なし" %>
+        <br>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+    <div class="main-container">
+      <h1 class="main-contents-title">ポートフォリオ一覧</h1>
+      <div class="main-contents">
+        <% @portfolios.each do |portfolio| %>
+          <div class="contents">
+            <p class="contents-user">
+              <%= "作者：#{portfolio.user.nickname}" %>
+            </p>
+            <p class="contents-title">
+              <%= "タイトル：#{portfolio.title}" %>
+            </p>
+            <p class="contents-language">
+              <%= "言語：#{portfolio.language}" %>
+            </p>
+            <p class="go-to-show">
+              <%= link_to "詳細", portfolio_path(portfolio.id), method: :get %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Takuya Kinoshita Making Second Original Application</p>
+  </footer>
+</div>
