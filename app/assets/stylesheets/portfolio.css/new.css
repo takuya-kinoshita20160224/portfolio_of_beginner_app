@@ -65,5 +65,7 @@ input {
   line-height: 50px;
   font-size: 13px;
 }
-
+.indispensable {
+  color: red;
+}
 

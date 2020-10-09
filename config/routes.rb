@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :portfolios do
     resources :comments, only: [:new, :create]
+    collection do
+      get :search
+    end
   end
 end
