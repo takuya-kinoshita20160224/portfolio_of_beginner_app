@@ -20,6 +20,23 @@
 
 #comment-submit {
   cursor: pointer;
-  background-color: white;
   border: 2px solid black;
+}
+
+/* コメント一覧部分css */
+
+.comments {
+  text-align: center;
+}
+.comments-catalog {
+  height: 40px;
+  font-size: 20px;
+}
+.comment {
+  height: 100px;
+  width: 75%;
+  padding: 5px;
+  margin: 20px auto;
+  background-color: antiquewhite;
+  border-radius: 5px;
 }

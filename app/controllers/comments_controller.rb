@@ -8,8 +8,6 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     if comment.save
       redirect_to "/portfolios/#{comment.portfolio.id}"
-    else
-      render 'new'
     end
   end
 

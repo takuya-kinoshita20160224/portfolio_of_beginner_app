@@ -2,6 +2,7 @@
   <div class="entry-form-title">投稿画面</div>
   <%= form_with model: @portfolio, class: "form", local: true do |f| %>
     <div class="form-body">
+      <%= render 'layouts/error_messages', model: f.object %>
       <div class="form-field">
         <label>作品タイトル
           (<span class="indispensable">必須</span>)

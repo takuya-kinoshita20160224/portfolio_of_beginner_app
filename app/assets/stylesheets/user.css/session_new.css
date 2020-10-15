@@ -1,0 +1,37 @@
+/* login signup共通css */
+.login-form, .signup-form {
+  height: 100vh;
+  text-align: center;
+}
+.login-form-title, .signup-form-title {
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+}
+.new_user {
+  height: 80vh;
+}
+.actions input {
+  height: 40px;
+  width: 100px;
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+/* ここまで */
+
+/* loginのcss */
+.field {
+  margin-top: 20px;
+  height: 20vh;
+  line-height: 40px;
+  font-size: 25px;
+}
+/* ここまで */
+
+/* signupのcss */
+.signup-field {
+  margin-top: 20px;
+  height: 150px;
+  line-height: 30px;
+  font-size: 25px;
+}
