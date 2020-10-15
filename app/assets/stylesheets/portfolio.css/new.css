@@ -44,12 +44,12 @@
 label {
   margin-bottom: 20px;
 }
-input {
+#portfolio_title, #portfolio_language, #portfolio_url {
   height:50px;
   width: 300px;
 }
-.btn {
-  background-color: white;
+.btn, #search-btn {
+  background-color: antiquewhite;
   text-align: center;
   border: 2px solid black;
   height: 50px;

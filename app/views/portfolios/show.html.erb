@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="edit-btn">
-    <% if current_user.id == @portfolio.user.id %>
+    <% if current_user == @portfolio.user %>
       <%= link_to "編集する", edit_portfolio_path(@portfolio.id), method: :get, class: "btn" %>
       <%= link_to "削除する", portfolio_path(@portfolio.id), method: :delete, class: "btn" %>
     <% else %>

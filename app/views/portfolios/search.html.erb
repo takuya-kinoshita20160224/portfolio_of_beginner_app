@@ -1,23 +1,51 @@
-<h1>
-  検索結果
-</h1>
-<% if @results.length !=0 %>
-  <% @results.each do |result| %>
-    <td>
-    <br>
-    <li>
-      <%= result.user.nickname %>
-      <%= result.title %>
-      <%= result.language %>
-    </li>
-    <% if user_signed_in? %>
-      <p class="go-to-show">
-        <%= link_to "詳細", portfolio_path(result.id), method: :get %>
-      </p> 
-    <% end %>
-  <% end %>
-<% else %>
-  該当する商品はありません
-<% end %>
-<br>
-<%= link_to 'トップページへ戻る', root_path %>
+<div id="wrapper">
+  <header class="header">
+    <div class="header-bar">
+      <h1 class="header-left">Port Folio Share</h1>
+      <div class="header-right">
+        <%= link_to current_user.nickname, "#" if user_signed_in? %>
+        <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, id: "logout", method: :delete %>
+          <%= link_to "投稿する", new_portfolio_path, id: "new-post" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, id: "login" %>
+          <%= link_to "新規登録", new_user_registration_path, id: "signup" %>
+        <% end %>
+      </div>
+    </div>
+    <%= image_tag "book2.jpg", width: "100%", height: "90%", class: "header-image" %>
+  </header>
+  <main class="main">
+    <div class="main-container">
+      <h1 class="main-contents-title">検索結果</h1>
+      <div class="main-contents">
+      <% if @results.length !=0 %>
+        <% @results.each do |result| %>
+          <div class="contents">
+            <p class="contents-user">
+              <%= "作者：#{result.user.nickname}" %>
+            </p>
+            <p class="contents-title">
+              <%= "タイトル：#{result.title}" %>
+            </p>
+            <p class="contents-language">
+              <%= "言語：#{result.language}" %>
+            </p>
+            <p class="go-to-show">
+              <%= link_to "詳細", portfolio_path(result.id), method: :get %>
+            </p>
+          </div>
+        <% end %>
+      <% else %>
+        該当する作品はありません
+      <% end %>
+      </div>
+    </div>
+    <div class="root-to-index">
+      <%= link_to 'トップページへ戻る', root_path, class: "btn" %>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Takuya Kinoshita Making Second Original Application</p>
+  </footer>
+</div>

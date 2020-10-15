@@ -76,6 +76,19 @@
   padding: 3px;
   background-color:antiquewhite;
 }
+.root-to-index {
+  text-align: center;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+}
+.root-to-index a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+}
+
 /* ここまでメイン*/
 
 /* ここからフッター */
