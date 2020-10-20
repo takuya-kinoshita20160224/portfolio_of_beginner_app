@@ -1,11 +1,11 @@
 <div class="login-form">
   <h2 class="login-form-title">ログイン</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :nickname %><br />
-      <%= f.text_field :nickname %><br />
-      <p>※テスト用nickname：kino※</p>
-    </div>
+  <div class="login-flash-message">
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+  </div>
+  <%= form_with model: @user, url: user_session_path, id: "new_user", class: "new_user", local: true do |f| %>
+    
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %><br />

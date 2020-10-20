@@ -18,32 +18,32 @@ RSpec.describe Portfolio, type: :model do
       it 'textが空だと保存できない' do
         @portfolio.text = nil
         @portfolio.valid?
-        expect(@portfolio.errors.full_messages).to include("Text can't be blank")
+        expect(@portfolio.errors.full_messages).to include("説明欄を入力してください")
       end
       it 'textが201字以上だと保存できない' do
         @portfolio.text = 'a' * 201
         @portfolio.valid?
-        expect(@portfolio.errors.full_messages).to include('Text is too long (maximum is 200 characters)')
+        expect(@portfolio.errors.full_messages).to include('説明欄は200文字以内で入力してください')
       end
       it 'urlが空だと保存できない' do
         @portfolio.url = nil
         @portfolio.valid?
-        expect(@portfolio.errors.full_messages).to include("Url can't be blank")
+        expect(@portfolio.errors.full_messages).to include("URLを入力してください")
       end
       it 'titleが空だと保存できない' do
         @portfolio.title = nil
         @portfolio.valid?
-        expect(@portfolio.errors.full_messages).to include("Title can't be blank")
+        expect(@portfolio.errors.full_messages).to include("作品タイトルを入力してください")
       end
       it 'languageが空だと保存できない' do
         @portfolio.language = nil
         @portfolio.valid?
-        expect(@portfolio.errors.full_messages).to include("Language can't be blank")
+        expect(@portfolio.errors.full_messages).to include("使用言語を入力してください")
       end
       it 'ユーザーが紐づいていないと保存できない' do
         @portfolio.user = nil
         @portfolio.valid?
-        expect(@portfolio.errors.full_messages).to include('User must exist')
+        expect(@portfolio.errors.full_messages).to include('Userを入力してください')
       end
     end
   end
