@@ -7,8 +7,6 @@
   font-size: 60px;
   font-weight: bold;
 }
-.form {
-}
 .form-body {
   width: 100%;
   display: flex;
@@ -90,4 +88,57 @@ label {
   flex-direction: column;
   height: 250px;
   line-height: 50px;
+}
+
+@media (max-width: 1024px) {  
+ 
+  body, .entry-form, .form-body, form {
+    height: 100%;
+  }
+  .entry-form-title {
+    font-size: 40px;
+  }
+
+  .form-field {
+    margin-top: 60px;
+  }
+  .text-field {
+    margin-top: 60px;
+    height: 500px;
+  }
+  .portfolio-text {
+    padding: 10px;
+    width: 50%;
+    height:400px;
+  }
+  .submit-btn {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 599px) {
+ 
+  body, .entry-form, .form-body, form {
+    height: 100%;
+    width: 100%;
+  }
+  .entry-form-title {
+    font-size: 30px;
+  }
+
+  .form-field {
+    margin-top: 60px;
+  }
+  .text-field {
+    margin-top: 60px;
+    height: 500px;
+  }
+  .portfolio-text {
+    padding: 10px;
+    width: 50%;
+    height:400px;
+  }
+  .submit-btn {
+    margin-top: 100px;
+  }
 }
