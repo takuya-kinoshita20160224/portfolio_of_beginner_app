@@ -35,3 +35,46 @@
   line-height: 30px;
   font-size: 25px;
 }
+
+@media (max-width: 1024px) {
+  .signup-form {
+    height: 1500px;
+  }
+  .new_user {
+    height: 1100px;
+  }
+  .signup-field {
+    margin-top: 60px;
+  }
+  .signup-form-title, .login-form-title {
+    font-size: 40px;
+  }
+  .actions {
+    margin-top: 80px;
+  }
+  .field {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 599px) {
+  .signup-form {
+    height: 1300px;
+  }
+  .new_user {
+    height: 1000px;
+  }
+  .signup-field {
+    margin-top: 60px;
+  }
+  .signup-form-title, .login-form-title {
+    font-size: 30px;
+  }
+  .actions {
+    margin-top: 80px;
+  }
+  .field {
+    
+    height: 30vh;
+  }
+}
