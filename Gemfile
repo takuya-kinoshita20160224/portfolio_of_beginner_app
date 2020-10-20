@@ -65,3 +65,4 @@ end
 
 gem 'ransack'
 gem 'rinku'
+gem 'rails-i18n'

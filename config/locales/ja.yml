@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+      portfolio:
+        title: 作品タイトル
+        url: URL
+        text: 説明欄
+        language: 使用言語
